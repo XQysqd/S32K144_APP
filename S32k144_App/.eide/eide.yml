@@ -1,0 +1,123 @@
+version: "4.1"
+name: S32k144_App
+type: ARM
+deviceName: null
+packDir: null
+srcDirs:
+  - Driver
+  - Generated_Code
+  - NVM
+  - Rte
+  - SDK
+  - User
+  - Rtos
+  - protocols
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders: []
+dependenceList: []
+outDir: build
+miscInfo:
+  uid: 6e6a2300158963aed336c6d38fd1d32e
+targets:
+  Debug:
+    cppPreprocessAttrs:
+      defineList:
+        - CPU_S32K144HFT0VLLT
+        - S32K
+        - DEV_ERROR_DETECT
+        - USING_OS_FREERTOS
+        - PEX_RTOS_START
+      incList:
+        - Driver
+        - Generated_Code
+        - NVM
+        - Rte
+        - SDK
+        - User
+        - SDK/platform
+        - SDK/rtos
+        - SDK/platform/devices
+        - SDK/platform/drivers
+        - SDK/platform/pal
+        - SDK/platform/devices/common
+        - SDK/platform/devices/S32K144/include
+        - SDK/platform/devices/S32K144/linker
+        - SDK/platform/devices/S32K144/startup
+        - SDK/platform/devices/S32K144/linker/gcc
+        - SDK/platform/devices/S32K144/startup/gcc
+        - SDK/platform/drivers/inc
+        - SDK/platform/pal/inc
+        - SDK/rtos/Source/include
+        - SDK/rtos/osif
+        - SDK/rtos/FreeRTOS_S32K/Source/include
+        - SDK/rtos/FreeRTOS_S32K/Source/portable/GCC/ARM_CM4F
+        - SDK/rtos/FreeRTOS_S32K/Source/portable/MemMang
+        - SDK/platform/pal/src/adc
+        - SDK/platform/pal/src/can
+        - SDK/platform/pal/src/i2c
+        - SDK/platform/pal/src/mpu
+        - SDK/platform/pal/src/security
+        - SDK/platform/pal/src/spi
+        - SDK/platform/pal/src/timing
+        - SDK/platform/pal/src/uart
+        - SDK/platform/drivers/src/adc
+        - Rtos
+        - Driver/ADC
+        - Driver/CAN
+        - Driver/CLOCK
+        - Driver/GPIO
+        - Driver/UART
+        - protocols/autosar_nm
+        - protocols/UDS
+      libList: []
+    excludeList: []
+    settings: {}
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M4
+        floatingPointHardware: single
+        options:
+          version: 5
+          afterBuildTasks: []
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            language-c: gnu11
+            language-cpp: gnu++14
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-0
+            warnings: all-warnings
+          global:
+            $float-abi-type: hard
+            arm-thumb-mode: thumb
+            not-use-syscalls: true
+            output-debug-info: enable
+            use-newlib-nano: true
+          linker:
+            $outputTaskExcludes:
+              - .bin
+            $toolName: auto
+            LIB_FLAGS: -lm
+            output-format: elf
+            remove-unused-input-sections: true
+        scatterFilePath: SDK\platform\devices\S32K144\linker\gcc\S32K144_64_flash.ld
+        storageLayout:
+          RAM: []
+          ROM: []
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: build\Debug\S32k144_App.hex
+        cpuInfo:
+          cpuName: S32K144U
+          vendor: NXP
+        otherCmds: ""
+        proType: 1
+        speed: 8000
+    uploader: JLink
